@@ -322,5 +322,19 @@
     }
   });
 
+  exports.SmsButton = React.createClass({
+    mixins: [Button]
+
+    , constructUrl: function () {
+      var body = encodeURIComponent(this.props.message);
+      body += (body ? ' ' : '') + encodeURIComponent(this.props.url);
+
+      return [
+        "sms:?&body=" + body,
+        "_self"
+      ]
+    }
+  });
+
   return exports;
 });
